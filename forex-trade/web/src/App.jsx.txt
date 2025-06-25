@@ -1,21 +1,10 @@
-import React, { useState } from "react";
-import { auth } from "./services/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import LoginScreen from "./pages/LoginScreen";
-import Dashboard from "./pages/Dashboard";
+import React from 'react';
 
 export default function App() {
-  const [user, setUser] = useState(null);
-
-  onAuthStateChanged(auth, (currentUser) => {
-    if (currentUser) {
-      setUser(currentUser);
-    }
-  });
-
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      {user ? <Dashboard user={user} /> : <LoginScreen />}
+    <div style={{ padding: "40px", textAlign: "center" }}>
+      <h1>Hello, Trader!</h1>
+      <p>Your Forex Trading Platform is loading.</p>
     </div>
   );
 }
